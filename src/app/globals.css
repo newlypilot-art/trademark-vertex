@@ -1,0 +1,285 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Colour variables are injected at runtime from data/site-config.json by the
+  <ThemeStyle /> component in the root layout. The values below are only a
+  fallback for the split second before that inline style block is parsed, and
+  for any context where the config cannot be read.
+*/
+:root {
+  --c-primary: #0d5c47;
+  --c-primary-dark: #073b2e;
+  --c-primary-soft: #e6f2ee;
+  --c-accent: #12b886;
+  --c-accent-soft: #dff6ee;
+  --c-ink: #0f172a;
+  --c-body: #475569;
+  --c-muted: #64748b;
+  --c-surface: #f6f9f8;
+  --c-line: #e2e8f0;
+  --c-page: #ffffff;
+
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Sora', 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    border-color: var(--c-line);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--c-page);
+    color: var(--c-body);
+    font-family: var(--font-sans);
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    color: var(--c-ink);
+    letter-spacing: -0.022em;
+    font-weight: 600;
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-size: clamp(2.15rem, 1.35rem + 3.4vw, 3.85rem);
+    line-height: 1.05;
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: clamp(1.65rem, 1.15rem + 2.1vw, 2.6rem);
+    line-height: 1.14;
+  }
+
+  h3 {
+    font-size: clamp(1.1rem, 0.98rem + 0.5vw, 1.3rem);
+    line-height: 1.3;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--c-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: var(--c-accent);
+    color: #fff;
+  }
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-shell px-5 sm:px-6 lg:px-8;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2.5 text-[0.7rem] font-semibold uppercase tracking-[0.16em];
+    color: var(--c-primary);
+  }
+
+  .eyebrow::before {
+    content: '';
+    @apply block h-px w-7;
+    background: var(--c-accent);
+  }
+
+  .lede {
+    @apply text-[1.0625rem] leading-[1.75] sm:text-lg;
+    color: var(--c-body);
+  }
+
+  .prose-block p {
+    @apply mb-5 leading-[1.8];
+  }
+  .prose-block p:last-child {
+    @apply mb-0;
+  }
+
+  /* Buttons ---------------------------------------------------------- */
+  .btn {
+    @apply inline-flex select-none items-center justify-center gap-2 rounded-full px-6 py-3 text-[0.9375rem] font-semibold transition-all duration-200;
+  }
+
+  .btn-primary {
+    background: var(--c-primary);
+    color: #fff;
+    box-shadow: 0 10px 22px -12px var(--c-primary);
+  }
+  .btn-primary:hover {
+    background: var(--c-primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 16px 30px -14px var(--c-primary);
+  }
+
+  .btn-accent {
+    background: var(--c-accent);
+    color: #04241c;
+    box-shadow: 0 10px 22px -12px var(--c-accent);
+  }
+  .btn-accent:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.04);
+  }
+
+  .btn-outline {
+    border: 1px solid var(--c-line);
+    background: var(--c-page);
+    color: var(--c-ink);
+  }
+  .btn-outline:hover {
+    border-color: var(--c-primary);
+    color: var(--c-primary);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost-light {
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: #fff;
+  }
+  .btn-ghost-light:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.6);
+  }
+
+  /* Cards ------------------------------------------------------------ */
+  .card {
+    @apply rounded-2xl border p-6 transition-all duration-300;
+    background: var(--c-page);
+    border-color: var(--c-line);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--c-primary) 30%, var(--c-line));
+    box-shadow: 0 24px 44px -28px rgba(15, 23, 42, 0.35);
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold;
+    background: var(--c-primary-soft);
+    color: var(--c-primary);
+  }
+
+  .icon-tile {
+    @apply grid h-11 w-11 shrink-0 place-items-center rounded-xl;
+    background: var(--c-primary-soft);
+    color: var(--c-primary);
+  }
+
+  .link-underline {
+    background-image: linear-gradient(var(--c-accent), var(--c-accent));
+    background-size: 0% 2px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 0.28s ease;
+  }
+  .link-underline:hover {
+    background-size: 100% 2px;
+  }
+
+  /* Decorative ------------------------------------------------------- */
+  .grid-lines {
+    background-image: linear-gradient(var(--c-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--c-line) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .field {
+    @apply w-full rounded-xl border px-4 py-3 text-[0.9375rem] transition;
+    background: var(--c-page);
+    border-color: var(--c-line);
+    color: var(--c-ink);
+  }
+  .field::placeholder {
+    color: var(--c-muted);
+    opacity: 0.75;
+  }
+  .field:focus {
+    outline: none;
+    border-color: var(--c-primary);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--c-primary) 12%, transparent);
+  }
+
+  .label {
+    @apply mb-1.5 block text-[0.8125rem] font-semibold;
+    color: var(--c-ink);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(96deg, var(--c-primary) 0%, var(--c-accent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  }
+}
+
+/* Scroll-reveal, disabled entirely for reduced-motion users. */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print: strip chrome so quotes and policies print cleanly. */
+@media print {
+  header,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+}

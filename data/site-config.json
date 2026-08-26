@@ -1,0 +1,203 @@
+{
+  "brand": {
+    "name": "Trademark Vertex",
+    "shortName": "TV",
+    "tagline": "Federal trademark filing, search, monitoring and renewal support for US brand owners.",
+    "legalEntity": "Trademark Vertex LLC",
+    "governingState": "Delaware",
+    "foundedYear": 2026
+  },
+  "logos": {
+    "header": "/uploads/header-1787776880164-e177bc67.png",
+    "footer": "/uploads/footer-1787776931874-914bf17f.png",
+    "favicon": "/uploads/favicon-1787776941862-fb46a0ec.png",
+    "headerAlt": "Trademark Vertex home",
+    "footerAlt": "Trademark Vertex"
+  },
+  "theme": {
+    "primary": "#0D5C47",
+    "primaryDark": "#073B2E",
+    "primarySoft": "#E6F2EE",
+    "accent": "#12B886",
+    "accentSoft": "#DFF6EE",
+    "ink": "#0F172A",
+    "body": "#475569",
+    "muted": "#64748B",
+    "surface": "#F6F9F8",
+    "line": "#E2E8F0",
+    "page": "#FFFFFF"
+  },
+  "contact": {
+    "email": "support@trademarkvertex.com",
+    "phone": "",
+    "addressLine1": "",
+    "addressLine2": "",
+    "hours": "Monday to Friday, 9:00am to 6:00pm ET",
+    "responseTime": "We reply to every message within one business day."
+  },
+  "stats": {
+    "enabled": true,
+    "items": [
+      {
+        "value": "1,400",
+        "suffix": "+",
+        "label": "Applications prepared"
+      },
+      {
+        "value": "48",
+        "suffix": " hrs",
+        "label": "Typical preparation time"
+      },
+      {
+        "value": "45",
+        "suffix": "",
+        "label": "Nice classes covered"
+      },
+      {
+        "value": "4.8",
+        "suffix": "/5",
+        "label": "Average client rating"
+      }
+    ]
+  },
+  "testimonials": {
+    "enabled": true,
+    "heading": "What brand owners say",
+    "items": [
+      {
+        "quote": "They took the confusion out of trademark classification and made the entire process easy to follow. Everything was explained clearly, and the filing was handled efficiently without unnecessary back-and-forth.",
+        "name": "Ashley R.",
+        "role": "Brand Strategist, Clean Beauty Company",
+        "location": "San Francisco, CA",
+        "rating": 5
+      },
+      {
+        "quote": "I wasn’t sure which trademark class was appropriate for our products. Their team reviewed everything, explained the requirements, and handled the filing smoothly. It saved us a lot of time and made the process feel much less complicated.",
+        "name": "Monica D.",
+        "role": "Business Development Director, Cosmetics Brand",
+        "location": "New York, NY",
+        "rating": 4
+      },
+      {
+        "quote": "The trademark process was completely new to me, but their guidance made it straightforward. They helped with the classification, answered all of our questions, and got the application filed without the usual hassle.",
+        "name": "Erin L.",
+        "role": "Product Marketing Manager, Personal Care Company",
+        "location": "Tampa, FL",
+        "rating": 5
+      },
+      {
+        "quote": "We wanted to make sure our products were classified correctly before filing. They walked us through the options, explained exactly what was needed, and took care of the filing from start to finish. Very professional and easy to work with.",
+        "name": "Marcus D.",
+        "role": "Director, apparel label",
+        "location": "Portland, OR",
+        "rating": 5
+      }
+    ]
+  },
+  "pricing": {
+    "heading": "Straightforward pricing, no surprise line items",
+    "note": "Government filing fees are billed separately and paid directly to the USPTO. Our fee covers preparation, classification and filing.",
+    "usptoFee": "$350 per class",
+    "plans": [
+      {
+        "id": "essential",
+        "name": "Essential",
+        "price": 99,
+        "summary": "One mark, one class, where you already know the name is clear.",
+        "featured": false,
+        "cta": "Start with Essential",
+        "features": [
+          "Preliminary USPTO knock-out search",
+          "Nice class selection for your goods or services",
+          "Goods and services description drafted to USPTO standards",
+          "Application prepared and filed on your behalf",
+          "Specimen and date-of-use review",
+          "Email status updates through to publication"
+        ]
+      },
+      {
+        "id": "professional",
+        "name": "Professional",
+        "price": 349,
+        "summary": "For brands going to market who want the risk checked before they commit.",
+        "featured": true,
+        "cta": "Choose Professional",
+        "features": [
+          "Everything in Essential",
+          "Comprehensive federal, state and common-law search",
+          "Written conflict and risk assessment report",
+          "Multi-class guidance where your goods span classes",
+          "Priority preparation, filed within two business days",
+          "12 months of trademark monitoring included"
+        ]
+      },
+      {
+        "id": "complete",
+        "name": "Complete",
+        "price": 699,
+        "summary": "End-to-end handling from search through registration, office action included.",
+        "featured": false,
+        "cta": "Choose Complete",
+        "features": [
+          "Everything in Professional",
+          "Response prepared for one non-substantive office action",
+          "Statement of Use preparation when your mark allows",
+          "Dedicated case manager on email",
+          "36 months of trademark monitoring included",
+          "Registration certificate handling and renewal docketing"
+        ]
+      }
+    ],
+    "addons": [
+      {
+        "name": "Comprehensive trademark search (standalone)",
+        "price": "$199"
+      },
+      {
+        "name": "Office action response (non-substantive)",
+        "price": "$249"
+      },
+      {
+        "name": "Office action response (substantive refusal)",
+        "price": "from $449"
+      },
+      {
+        "name": "Statement of Use / proof of commerce",
+        "price": "$199 + USPTO fee"
+      },
+      {
+        "name": "Extension request (Section 1(b))",
+        "price": "$149 + USPTO fee"
+      },
+      {
+        "name": "Section 8 & 15 maintenance filing",
+        "price": "$249 + USPTO fee"
+      },
+      {
+        "name": "Section 8 & 9 renewal filing",
+        "price": "$279 + USPTO fee"
+      },
+      {
+        "name": "Trademark monitoring",
+        "price": "$99 per year"
+      },
+      {
+        "name": "Copyright registration",
+        "price": "$129 + $65 government fee"
+      },
+      {
+        "name": "DMCA takedown notice",
+        "price": "$149 per notice"
+      },
+      {
+        "name": "Additional class on any package",
+        "price": "$75 + USPTO fee"
+      }
+    ]
+  },
+  "seo": {
+    "defaultTitle": "Federal Trademark Registration Services",
+    "defaultDescription": "Prepare and file your federal trademark application with guided support. Clearance searches, brand monitoring, renewals and office action responses for US brands.",
+    "twitterHandle": ""
+  }
+}

@@ -1,0 +1,16 @@
+node_modules
+.next
+out
+.env.local
+.env
+*.log
+.DS_Store
+tsconfig.tsbuildinfo
+.vercel
+
+# Contact form submissions contain personal data — never commit them.
+data/leads.json
+
+# NOTE: data/site-config.json and public/uploads/ ARE committed on purpose.
+# They carry this deployment's brand name, colours, logos and favicon, which is
+# how the same codebase serves several different brands from several branches.

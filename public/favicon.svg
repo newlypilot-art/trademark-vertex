@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Trademark Vertex">
+  <rect width="64" height="64" rx="15" fill="#0D5C47"/>
+  <path d="M32 13 47 19v11.5C47 40 40.7 47.9 32 51c-8.7-3.1-15-11-15-20.5V19l15-6Z" fill="none" stroke="#12B886" stroke-width="3.2" stroke-linejoin="round"/>
+  <path d="m25.5 32.2 4.6 4.6 8.6-9" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
