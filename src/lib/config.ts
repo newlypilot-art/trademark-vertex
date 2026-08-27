@@ -40,6 +40,10 @@ export type SiteConfig = {
     favicon: string;
     headerAlt: string;
     footerAlt: string;
+    /** Rendered height in px of the header logo. 28-72. */
+    headerHeight: number;
+    /** Rendered height in px of the footer logo. 28-96. */
+    footerHeight: number;
   };
   theme: {
     primary: string;
@@ -93,7 +97,15 @@ export const defaultConfig: SiteConfig = {
     governingState: '',
     foundedYear: 2026,
   },
-  logos: { header: '', footer: '', favicon: '', headerAlt: '', footerAlt: '' },
+  logos: {
+    header: '',
+    footer: '',
+    favicon: '',
+    headerAlt: '',
+    footerAlt: '',
+    headerHeight: 48,
+    footerHeight: 56,
+  },
   theme: {
     primary: '#0D5C47',
     primaryDark: '#073B2E',

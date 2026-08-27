@@ -179,8 +179,10 @@ export default function Testimonials({ cfg }: { cfg: SiteConfig }) {
 
 function Card({ t, index }: { t: Testimonial; index: number }) {
   return (
+    // No data-reveal here on purpose: cards sit inside a horizontally scrolling
+    // track, so the ones off to the side never intersect the viewport and would
+    // still be at opacity 0 the moment you page the carousel to them.
     <figure
-      data-reveal
       style={{ ['--reveal-delay' as any]: `${(index % 3) * 90}ms` }}
       className="group relative w-[86vw] shrink-0 snap-start sm:w-[calc(50%-0.625rem)] lg:w-[calc(33.3333%-0.834rem)]"
     >

@@ -162,19 +162,27 @@ export function BrandMark({
   name,
   short,
   tone = 'dark',
+  height = 40,
 }: {
   name: string;
   short: string;
   tone?: 'dark' | 'light';
+  /** Matches the uploaded-logo slot height so the fallback never jumps size. */
+  height?: number;
 }) {
   const light = tone === 'light';
+  const tile = Math.round(height * 0.82);
   return (
-    <span className="flex items-center gap-2.5">
+    <span className="flex items-center" style={{ gap: Math.round(tile * 0.28) }}>
       <span
-        className="grid h-9 w-9 place-items-center rounded-[11px] text-[0.8rem] font-bold tracking-tight"
+        className="grid shrink-0 place-items-center font-bold tracking-tight"
         style={{
+          height: tile,
+          width: tile,
+          borderRadius: Math.round(tile * 0.3),
+          fontSize: Math.round(tile * 0.36),
           background: light ? 'rgba(255,255,255,.14)' : 'var(--c-primary)',
-          color: light ? '#fff' : '#fff',
+          color: '#fff',
           boxShadow: light ? 'inset 0 0 0 1px rgba(255,255,255,.28)' : 'none',
         }}
         aria-hidden
@@ -182,8 +190,11 @@ export function BrandMark({
         {(short || name.slice(0, 2)).slice(0, 2).toUpperCase()}
       </span>
       <span
-        className="font-display text-[1.0625rem] font-semibold leading-none tracking-tight"
-        style={{ color: light ? '#fff' : 'var(--c-ink)' }}
+        className="font-display font-semibold leading-none tracking-tight"
+        style={{
+          color: light ? '#fff' : 'var(--c-ink)',
+          fontSize: Math.round(tile * 0.46),
+        }}
       >
         {name}
       </span>

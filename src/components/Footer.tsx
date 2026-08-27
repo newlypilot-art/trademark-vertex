@@ -20,6 +20,7 @@ const legal = [
 
 export default function Footer({ cfg }: { cfg: SiteConfig }) {
   const year = new Date().getFullYear(); // QA #25 - always current, never a range.
+  const logoHeight = cfg.logos.footerHeight || 56;
   const tel = cfg.contact.phone.replace(/[^\d+]/g, '');
 
   return (
@@ -33,12 +34,18 @@ export default function Footer({ cfg }: { cfg: SiteConfig }) {
                 <img
                   src={cfg.logos.footer}
                   alt={cfg.logos.footerAlt || cfg.brand.name}
-                  className="h-10 w-auto max-w-[220px] object-contain"
-                  width={220}
-                  height={55}
+                  className="w-auto max-w-[240px] object-contain object-left sm:max-w-[300px]"
+                  style={{ height: logoHeight }}
+                  width={640}
+                  height={160}
                 />
               ) : (
-                <BrandMark name={cfg.brand.name} short={cfg.brand.shortName} tone="light" />
+                <BrandMark
+                  name={cfg.brand.name}
+                  short={cfg.brand.shortName}
+                  tone="light"
+                  height={logoHeight}
+                />
               )}
             </Link>
             <p className="mt-5 max-w-sm text-[0.9rem] leading-relaxed" style={{ color: 'rgba(255,255,255,.66)' }}>

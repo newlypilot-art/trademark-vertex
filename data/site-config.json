@@ -3,16 +3,18 @@
     "name": "Trademark Vertex",
     "shortName": "TV",
     "tagline": "Federal trademark filing, search, monitoring and renewal support for US brand owners.",
-    "legalEntity": "Trademark Vertex LLC",
-    "governingState": "Delaware",
+    "legalEntity": "",
+    "governingState": "",
     "foundedYear": 2026
   },
   "logos": {
-    "header": "/uploads/header-1787776880164-e177bc67.png",
-    "footer": "/uploads/footer-1787776931874-914bf17f.png",
-    "favicon": "/uploads/favicon-1787776941862-fb46a0ec.png",
+    "header": "/uploads/header-1787810318391-5885aca7.png",
+    "footer": "/uploads/footer-1787810324662-a869c4bf.png",
+    "favicon": "/uploads/favicon-1787810337471-27cc1422.png",
     "headerAlt": "Trademark Vertex home",
-    "footerAlt": "Trademark Vertex"
+    "footerAlt": "Trademark Vertex",
+    "headerHeight": 48,
+    "footerHeight": 56
   },
   "theme": {
     "primary": "#0D5C47",
@@ -65,32 +67,46 @@
     "heading": "What brand owners say",
     "items": [
       {
-        "quote": "They took the confusion out of trademark classification and made the entire process easy to follow. Everything was explained clearly, and the filing was handled efficiently without unnecessary back-and-forth.",
-        "name": "Ashley R.",
-        "role": "Brand Strategist, Clean Beauty Company",
-        "location": "San Francisco, CA",
+        "quote": "I had no idea which class my products belonged in and the USPTO site was no help at all. They mapped it out, rewrote my description of goods so it would actually pass, and filed within two days.",
+        "name": "Alyssa K.",
+        "role": "Founder, natural haircare brand",
+        "location": "Austin, TX",
         "rating": 5
       },
       {
-        "quote": "I wasn’t sure which trademark class was appropriate for our products. Their team reviewed everything, explained the requirements, and handled the filing smoothly. It saved us a lot of time and made the process feel much less complicated.",
-        "name": "Monica D.",
-        "role": "Business Development Director, Cosmetics Brand",
-        "location": "New York, NY",
-        "rating": 4
-      },
-      {
-        "quote": "The trademark process was completely new to me, but their guidance made it straightforward. They helped with the classification, answered all of our questions, and got the application filed without the usual hassle.",
-        "name": "Erin L.",
-        "role": "Product Marketing Manager, Personal Care Company",
-        "location": "Tampa, FL",
+        "quote": "We got an office action six weeks in and I assumed the application was dead. The response they prepared addressed the examiner's point directly and the mark went through to publication.",
+        "name": "Jordan P.",
+        "role": "Owner, wellness and beauty company",
+        "location": "Miami, FL",
         "rating": 5
       },
       {
-        "quote": "We wanted to make sure our products were classified correctly before filing. They walked us through the options, explained exactly what was needed, and took care of the filing from start to finish. Very professional and easy to work with.",
+        "quote": "The comprehensive search paid for itself. It turned up a common-law user in our exact space that a basic USPTO lookup never would have shown, and we changed the name before spending on packaging.",
+        "name": "Nicole R.",
+        "role": "Co-founder, luxury body care",
+        "location": "Chicago, IL",
+        "rating": 5
+      },
+      {
+        "quote": "Straight answers, no upsell pressure, and a real person replying to email. After two agencies that felt like call centres, that was the whole difference.",
         "name": "Marcus D.",
         "role": "Director, apparel label",
         "location": "Portland, OR",
         "rating": 5
+      },
+      {
+        "quote": "They caught that my specimen showed the logo as decoration rather than as a brand, which would have been an instant refusal. Reshot it, filed it, registered.",
+        "name": "Priya S.",
+        "role": "Founder, home fragrance studio",
+        "location": "Jersey City, NJ",
+        "rating": 5
+      },
+      {
+        "quote": "Monitoring flagged a confusingly similar filing in our class two months after registration. We were able to act early instead of finding out from a customer.",
+        "name": "Ben T.",
+        "role": "CEO, SaaS company",
+        "location": "Denver, CO",
+        "rating": 4
       }
     ]
   },

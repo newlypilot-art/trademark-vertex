@@ -18,6 +18,11 @@ export async function GET() {
   return NextResponse.json(getConfig());
 }
 
+function clampNum(v: unknown, min: number, max: number, fallback: number): number {
+  const n = Math.round(Number(v));
+  return Number.isFinite(n) ? Math.min(max, Math.max(min, n)) : fallback;
+}
+
 function str(v: unknown, fallback = ''): string {
   return typeof v === 'string' ? v.slice(0, 4000) : fallback;
 }
@@ -42,6 +47,8 @@ function sanitise(input: any): SiteConfig {
       favicon: str(input?.logos?.favicon, cur.logos.favicon).slice(0, 400),
       headerAlt: str(input?.logos?.headerAlt, cur.logos.headerAlt).slice(0, 160),
       footerAlt: str(input?.logos?.footerAlt, cur.logos.footerAlt).slice(0, 160),
+      headerHeight: clampNum(input?.logos?.headerHeight, 28, 72, cur.logos.headerHeight),
+      footerHeight: clampNum(input?.logos?.footerHeight, 28, 96, cur.logos.footerHeight),
     },
     theme: Object.fromEntries(
       (Object.keys(d.theme) as (keyof SiteConfig['theme'])[]).map((k) => [

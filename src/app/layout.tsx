@@ -56,6 +56,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap"
         />
         <meta name="theme-color" content={cfg.theme.primary} />
+        {/* Without JavaScript nothing would ever add .is-visible, so un-hide
+            every scroll-reveal section rather than showing a blank page. */}
+        <noscript>
+          <style>{`[data-reveal]{opacity:1 !important;transform:none !important}`}</style>
+        </noscript>
         <ThemeStyle theme={cfg.theme} />
         <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd([organizationSchema(cfg)])} />
       </head>

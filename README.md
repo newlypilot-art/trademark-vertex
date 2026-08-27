@@ -58,15 +58,21 @@ governing state. The last two feed the Terms — see section 5b.
 Three upload slots, each with its **own cropper locked to that slot's aspect ratio**, so an
 upload can never come out stretched or clipped:
 
-| Slot | Crop ratio | Output |
-|---|---|---|
-| Header logo | 4:1 | 480×120 PNG, rendered 36px tall |
-| Footer logo | 4:1 | 480×120 PNG, rendered 40px tall on the dark footer |
-| Favicon | 1:1 | 256×256 PNG, becomes the browser tab icon |
+| Slot | Crop ratio | Output | Rendered height |
+|---|---|---|---|
+| Header logo | 4:1 | 640×160 PNG | 48px by default, adjustable 28–72px |
+| Footer logo | 4:1 | 640×160 PNG | 56px by default, adjustable 28–96px |
+| Favicon | 1:1 | 256×256 PNG | Browser tab icon |
 
-Drag to reposition, use the zoom slider, hit **Crop and use**. The footer preview is shown
-against the dark footer background so you can see how it will really look. Transparency is
-preserved. Each slot also has an alt-text field.
+Drag to reposition, use the zoom slider, hit **Crop and use**. Under each of the header and
+footer croppers there is a **height slider** — the preview above it always shows the logo at
+the exact size the site will render it, and the header bar grows with the logo so a taller
+one never crowds the navigation. Useful when five brands have five differently-proportioned
+logos.
+
+The footer preview is shown against the dark footer background, so a logo with dark text
+shows up as a problem there before it ships. Transparency is preserved. Each slot also has
+an alt-text field.
 
 Uploaded files go to **`public/uploads/`** and are referenced as `/uploads/<filename>`, so
 they are plain static assets you commit to git and your host serves from its CDN. See

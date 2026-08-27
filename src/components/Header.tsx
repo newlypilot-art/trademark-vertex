@@ -55,6 +55,10 @@ export default function Header({ cfg }: { cfg: SiteConfig }) {
   const isActive = (href: string) =>
     href === '/' ? pathname === '/' : pathname.startsWith(href);
 
+  // The bar grows with the logo so a taller logo never crowds the nav.
+  const logoHeight = cfg.logos.headerHeight || 48;
+  const barHeight = Math.max(68, logoHeight + 28);
+
   const openMenu = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
     setServicesOpen(true);
@@ -115,19 +119,27 @@ export default function Header({ cfg }: { cfg: SiteConfig }) {
           boxShadow: scrolled ? '0 8px 26px -22px rgba(15,23,42,.55)' : 'none',
         }}
       >
-        <div className="shell flex h-[68px] items-center justify-between gap-6">
+        <div
+          className="shell flex items-center justify-between gap-6"
+          style={{ height: barHeight }}
+        >
           <Link href="/" className="flex shrink-0 items-center" aria-label={`${cfg.brand.name} home`}>
             {cfg.logos.header ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={cfg.logos.header}
                 alt={cfg.logos.headerAlt || `${cfg.brand.name} home`}
-                className="h-9 w-auto max-w-[200px] object-contain"
-                width={200}
-                height={50}
+                className="w-auto max-w-[190px] object-contain object-left sm:max-w-[260px]"
+                style={{ height: logoHeight }}
+                width={640}
+                height={160}
               />
             ) : (
-              <BrandMark name={cfg.brand.name} short={cfg.brand.shortName} />
+              <BrandMark
+                name={cfg.brand.name}
+                short={cfg.brand.shortName}
+                height={logoHeight}
+              />
             )}
           </Link>
 
@@ -243,16 +255,24 @@ export default function Header({ cfg }: { cfg: SiteConfig }) {
             className="absolute right-0 top-0 flex h-full w-[min(22rem,88vw)] flex-col animate-fade-up border-l"
             style={{ background: 'var(--c-page)', borderColor: 'var(--c-line)' }}
           >
-            <div className="flex h-[68px] shrink-0 items-center justify-between border-b px-5">
+            <div
+              className="flex shrink-0 items-center justify-between border-b px-5"
+              style={{ height: barHeight }}
+            >
               {cfg.logos.header ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
                   src={cfg.logos.header}
                   alt={cfg.logos.headerAlt || cfg.brand.name}
-                  className="h-8 w-auto max-w-[160px] object-contain"
+                  className="w-auto max-w-[180px] object-contain object-left"
+                  style={{ height: Math.min(logoHeight, 44) }}
                 />
               ) : (
-                <BrandMark name={cfg.brand.name} short={cfg.brand.shortName} />
+                <BrandMark
+                  name={cfg.brand.name}
+                  short={cfg.brand.shortName}
+                  height={Math.min(logoHeight, 44)}
+                />
               )}
               <button
                 type="button"

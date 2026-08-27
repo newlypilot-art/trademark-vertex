@@ -12,15 +12,15 @@ export const SLOT_SPEC: Record<
   header: {
     label: 'Header logo',
     aspect: 4 / 1,
-    out: [480, 120],
-    help: 'Cropped to the exact shape of the header slot — 4:1, rendered 36px tall.',
+    out: [640, 160],
+    help: 'Cropped to the shape of the header slot — 4:1. Set the rendered height below.',
     preview: 'light',
   },
   footer: {
     label: 'Footer logo',
     aspect: 4 / 1,
-    out: [480, 120],
-    help: 'Cropped to the footer slot — 4:1, rendered 40px tall on the dark footer.',
+    out: [640, 160],
+    help: 'Cropped to the footer slot — 4:1, shown here on the dark footer background.',
     preview: 'dark',
   },
   favicon: {
@@ -66,10 +66,13 @@ export default function LogoCropper({
   slot,
   value,
   onChange,
+  renderHeight,
 }: {
   slot: Slot;
   value: string;
   onChange: (url: string) => void;
+  /** Preview at the exact height the site will render it at. */
+  renderHeight?: number;
 }) {
   const spec = SLOT_SPEC[slot];
   const inputRef = useRef<HTMLInputElement>(null);
@@ -165,7 +168,7 @@ export default function LogoCropper({
         style={{
           borderColor: 'var(--c-line)',
           background: spec.preview === 'dark' ? 'var(--c-primary-dark)' : 'var(--c-surface)',
-          minHeight: 92,
+          minHeight: Math.max(96, (renderHeight ?? 48) + 44),
         }}
       >
         {value ? (
@@ -173,7 +176,12 @@ export default function LogoCropper({
           <img
             src={value}
             alt={`${spec.label} preview`}
-            className={slot === 'favicon' ? 'h-12 w-12 object-contain' : 'h-10 w-auto max-w-[220px] object-contain'}
+            className={
+              slot === 'favicon'
+                ? 'h-12 w-12 object-contain'
+                : 'w-auto max-w-[300px] object-contain'
+            }
+            style={slot === 'favicon' ? undefined : { height: renderHeight ?? 48 }}
           />
         ) : (
           <p className="text-[0.8125rem]" style={{ color: spec.preview === 'dark' ? 'rgba(255,255,255,.6)' : 'var(--c-muted)' }}>
@@ -241,7 +249,8 @@ export default function LogoCropper({
           </div>
           <p className="mt-2 text-[0.78rem]" style={{ color: 'var(--c-muted)' }}>
             Drag to reposition. The frame is locked to {spec.aspect === 1 ? '1:1' : '4:1'} so the result
-            fits the {slot} slot exactly. Output {spec.out[0]}×{spec.out[1]}px PNG with transparency preserved.
+            fits the {slot} slot exactly. Output {spec.out[0]}×{spec.out[1]}px PNG with transparency
+            preserved — enough resolution for a retina screen at any height you pick.
           </p>
         </div>
       ) : null}

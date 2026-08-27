@@ -255,7 +255,16 @@ export default function Dashboard({ initial }: { initial: SiteConfig }) {
                 <LogoCropper
                   slot="header"
                   value={cfg.logos.header}
+                  renderHeight={cfg.logos.headerHeight}
                   onChange={(url) => patch((d) => void (d.logos.header = url))}
+                />
+                <Slider
+                  label="Header logo height"
+                  value={cfg.logos.headerHeight}
+                  min={28}
+                  max={72}
+                  onChange={(v) => patch((d) => void (d.logos.headerHeight = v))}
+                  help="The header bar grows with it, so a taller logo never crowds the nav. 48px is the default."
                 />
                 <Text
                   label="Header logo alt text"
@@ -266,7 +275,16 @@ export default function Dashboard({ initial }: { initial: SiteConfig }) {
                 <LogoCropper
                   slot="footer"
                   value={cfg.logos.footer}
+                  renderHeight={cfg.logos.footerHeight}
                   onChange={(url) => patch((d) => void (d.logos.footer = url))}
+                />
+                <Slider
+                  label="Footer logo height"
+                  value={cfg.logos.footerHeight}
+                  min={28}
+                  max={96}
+                  onChange={(v) => patch((d) => void (d.logos.footerHeight = v))}
+                  help="The footer has more room, so this can go larger than the header. 56px is the default."
                 />
                 <Text
                   label="Footer logo alt text"
@@ -638,6 +656,61 @@ function Area({
       />
       {help ? (
         <p className="mt-1.5 text-[0.75rem]" style={{ color: 'var(--c-muted)' }}>
+          {help}
+        </p>
+      ) : null}
+    </div>
+  );
+}
+
+function Slider({
+  label,
+  value,
+  min,
+  max,
+  onChange,
+  help,
+}: {
+  label: string;
+  value: number;
+  min: number;
+  max: number;
+  onChange: (v: number) => void;
+  help?: string;
+}) {
+  const id = `s-${label.replace(/\W+/g, '-').toLowerCase()}`;
+  return (
+    <div
+      className="mb-4 rounded-2xl border p-5 last:mb-0"
+      style={{ borderColor: 'var(--c-line)', background: 'var(--c-page)' }}
+    >
+      <div className="flex items-baseline justify-between gap-4">
+        <label className="label !mb-0" htmlFor={id}>
+          {label}
+        </label>
+        <span
+          className="font-mono text-[0.8125rem] font-semibold"
+          style={{ color: 'var(--c-primary)' }}
+        >
+          {value}px
+        </span>
+      </div>
+      <input
+        id={id}
+        type="range"
+        min={min}
+        max={max}
+        step={1}
+        value={value}
+        onChange={(e) => onChange(Number(e.target.value))}
+        className="mt-3 w-full accent-[var(--c-primary)]"
+      />
+      <div className="flex justify-between text-[0.7rem]" style={{ color: 'var(--c-muted)' }}>
+        <span>{min}px</span>
+        <span>{max}px</span>
+      </div>
+      {help ? (
+        <p className="mt-2 text-[0.75rem]" style={{ color: 'var(--c-muted)' }}>
           {help}
         </p>
       ) : null}
